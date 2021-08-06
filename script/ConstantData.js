@@ -1,0 +1,1 @@
+export let initialSearch = new URLSearchParams(window.location.search).get("search")
