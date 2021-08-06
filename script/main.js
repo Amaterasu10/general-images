@@ -105,8 +105,6 @@ const App = {
 
       images.forEach(image => {
         
-        
-
         const newImage = document.createElement('img')
         newImage.style.width = '0px';
 
@@ -175,7 +173,7 @@ const App = {
         if (!entry.isIntersecting) return;
         const img = entry.target;  
         img.src = imageData.src[categoryArray.indexOf(img)].medium
-        console.log(imageData.height[categoryArray.indexOf(img)] , img)
+        // console.log(imageData.height[categoryArray.indexOf(img)] , img)
  
         const linkImagePreloader = document.createElement('link')
         linkImagePreloader.rel = 'preload'
@@ -249,9 +247,6 @@ const App = {
       }
       imageOnClick();
 
-      
-     
-
     }
 
     const navigateToModalImage = function(direction) {
@@ -314,13 +309,19 @@ const App = {
       renderUpdate(res)
       lastCalled = Date.now();
     }
-    console.log(document.getElementsByTagName('footer'))
     
-       
+    const burgerNav = document.querySelector('.burger-nav')
+    const burgerBars = document.querySelectorAll(".burger-nav > .bar")
+
+    console.log(burgerBars)
+    const galleryNav = document.querySelector('.gallery-nav')   
+    
+    burgerNav.addEventListener("click", ()=>{
+      galleryNav.classList.toggle("autoHeight")
+    })
   }
   
 }// Website object
-
 
 //invocation
 window.addEventListener("DOMContentLoaded", () => App.init());

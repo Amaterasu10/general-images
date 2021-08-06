@@ -22,6 +22,12 @@ header{
 
 }
 
+.out-headers{
+  h1,nav{
+    margin: 0 auto;
+  }
+}
+
 
 
 header[data-gallery-header] {
@@ -83,21 +89,18 @@ header[data-gallery-header] {
     }
   }
 
-  .burger-nav {
-    .bar {
-      width: 35px;
-      height: 5px;
-      background-color: $clr-primary-bg-lighter;
-      margin: 6px 0;
-    }
-  }
+
+}
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: $clr-primary-bg-lighter;
+  margin: 6px 0;
 }
 
 
-nav{
-
-  display: none;
-  align-self: center;
+nav{  
 
   li {
     padding: 0px 0.625rem;
@@ -115,7 +118,21 @@ nav{
   }
 }
 
+
+//overighters
 .gallery-nav {
   margin: 0 auto;
+  display: none;
+  height: 0;
+  width: 100%;
+  align-self: center;
+  ul{
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
 
+.autoHeight{
+  display: block;
+  height: auto;
 }

@@ -15,6 +15,19 @@ body{
   position: relative;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $clr-primary-bg;
+}
+
+
 html {
   font-size: 16px;
   font-family: $primary-font;
@@ -82,21 +95,33 @@ footer {
 
 .out-mains {
   background-color: $clr-primary-bg-lighter;
-  min-height: 100vh;
-  display: flex;  
-}
-
-.form-container{
-  margin: auto;
-  width: 50%;
-  height: 60%;
-  background-color: $clr-primary-bg;
-  padding: 10px;
+  min-height: calc(100vh - 95px - 36px );
+  display: grid;
+  place-items: center;
 
   h2{
     text-align: center;
     padding:10px;
   }
+
+  p{
+    text-align: center;
+  }
+
+  a{
+    color: inherit;
+    &:hover{
+      color: $clr-primary-txt-hov;
+    }
+  }
+}
+
+.form-container{
+
+  width: 95%;
+  background-color: $clr-primary-bg;
+  padding: 10px;
+
 
   form{
     width: 100%;
@@ -127,7 +152,6 @@ footer {
 //index styles
 @import "./partials/global/header";
 @import "./partials/index/home";
-@import "./partials/index/mains";
 
 
 // gallery styles

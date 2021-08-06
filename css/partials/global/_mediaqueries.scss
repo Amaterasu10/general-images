@@ -19,6 +19,8 @@
      grid-template-columns:repeat(auto-fit, minmax(50px, 1fr));
     }
 }
+
+
 @media (max-width: 675px) {
     #modal-img {
 
@@ -27,13 +29,28 @@
     }
 }
 
+//only apply if window width is > 510px
+@media (min-width: 510px) {
+    .out-mains {
+        min-height: calc(100vh - 62px - 36px);
+    }
+    .form-container{
+        width: 60%;
+    }
+}
+
 @media (min-width: 700px) {
     
     .burger-nav{
         display: none;
     }
-    .desktop-nav{
+    .gallery-nav{
         display: block;
+        height: auto;
+        width: auto;
+        ul{
+            width: 100%;
+        }
     }
     .image-container {
         position: relative;
