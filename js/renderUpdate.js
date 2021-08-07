@@ -1,22 +1,17 @@
-import { initialSearch } from "./ConstantData.js";
-import {  category, modalBox, body, ModalImage, photographer, photoLink, banner } from "./Elements.js"
+import {  category, banner } from "./Elements.js"
 import ImageData from "./ImageData.js";
 import getData from "./getData.js";
-import { modifyModalCurrentIndex } from "./modalNavigation.js";
-
-export let categoryArray;
+import imageOnClick from "./imageOnClick.js"
+import { categoryArray, setCategoryArray, initialSearch } from "./globalVars.js";
 
 const renderUpdate = async data =>{
-    let res = await data
-    if(res == undefined || null) return;
-    
-    //console.log("this is the res inside renderUpdate", res)
-    let images = res.photos
-    if(images.length <= 0) return;
-    
-    //console.log(images)
-    
-    document.getElementsByTagName('title')[0].innerHTML = ` ${res.total_results} results for ${initialSearch}`
+  let res = await data
+  if(res == undefined || null) return;
+
+  let images = res.photos
+  if(images.length <= 0) return;
+  
+  document.getElementsByTagName('title')[0].innerHTML = ` ${res.total_results} results for ${initialSearch}`
     
   images.forEach(image => {
     
@@ -77,9 +72,8 @@ const renderUpdate = async data =>{
   });
 
 
-  // an array of images that are present in anime-page
-  categoryArray = Array.from( document.querySelectorAll("#anime-page .image") );
-  //console.log(categoryArray)
+  // an array of images that are present in Images-container
+  setCategoryArray(Array.from( document.querySelectorAll("#Images-container .image") ));
 
   const head =  document.getElementsByTagName('head')[0]
   const imgOptions = {};
@@ -88,7 +82,6 @@ const renderUpdate = async data =>{
     if (!entry.isIntersecting) return;
     const img = entry.target;  
     img.src = ImageData.src[categoryArray.indexOf(img)].medium
-    // console.log(ImageData.height[categoryArray.indexOf(img)] , img)
 
     const linkImagePreloader = document.createElement('link')
     linkImagePreloader.rel = 'preload'
@@ -109,13 +102,6 @@ const renderUpdate = async data =>{
     requestNow++
   });
 
-  // const banner = document.createElement('Div')
-  // banner.classList.add('banner')
-  // banner.innerHTML = 'Loading more images...'
-  // const footer = document.getElementsByTagName('footer')[0]
-
-  //footer.insertBefore(banner, footer.firstChild)
-  
   const bannerOptions = {}
   const bannerObserver = new IntersectionObserver((entries, bannerObserver) => {
 
@@ -132,34 +118,6 @@ const renderUpdate = async data =>{
     'getdata'
   } 
 
-  const imageOnClick = function() {
-    categoryArray.forEach(image =>{ 
-      image.addEventListener("click", function () {
-        if (modalBox.classList == "close") {
-          modalBox.classList.replace("close", "open");
-          body.classList.add("no-scroll");
-
-
-          if(window.innerWidth > 1900){
-            ModalImage.src = ImageData.src[categoryArray.indexOf(this)].original;
-          }
-          else if(window.innerWidth > 1400){
-            ModalImage.src = ImageData.src[categoryArray.indexOf(this)].large2x;
-          }else if(window.innerWidth > 700){
-            ModalImage.src = ImageData.src[categoryArray.indexOf(this)].large;
-          }else if(window.innerWidth < 700){
-            ModalImage.src = ImageData.src[categoryArray.indexOf(this)].medium;
-          }
-          
-          modifyModalCurrentIndex(categoryArray.indexOf(this));
-          photoLink.href = ImageData.url[categoryArray.indexOf(this)];
-          //console.log(ImageData)
-          photographer.href = ImageData.photographer_url[categoryArray.indexOf(this)];
-          photographer.innerHTML = ImageData.photographer[categoryArray.indexOf(this)];
-        }
-      })
-    })
-  }
   imageOnClick();
 
 }
