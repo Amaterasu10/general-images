@@ -24,6 +24,14 @@
   // grid-template-columns:repeat( 4, fit-content);
   // grid-template-rows:repeat( auto-fit, fit-content);
   // height: auto;
+
+  @include mq(1077px) {
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  @include mq(2000px) {
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
 
 .open-grid img {
@@ -44,6 +52,10 @@
 .image-container {
   position: relative;
   min-height: 15vh;
+
+  @include mq(700px) {
+    min-height: 25vh;
+  }
 }
 
 .image-overlay {

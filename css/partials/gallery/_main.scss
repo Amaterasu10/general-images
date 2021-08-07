@@ -13,7 +13,16 @@ main{
   background-color: $clr-secondary-bg;
   margin: 1.2rem auto 1.25rem;
   width: 90%;
+
+  @include mq(700px) {
+    min-height: calc(100vh - 50px - 66px - 2.45rem);
+  }
+
+  @include mq(1077px) {
+    min-height: calc(100vh - 61px - 66px - 2.45rem);
+  }
 }
+
 
 .banner{
   width: 100%;
@@ -23,6 +32,7 @@ main{
   background-color: wheat;
 }
 
+//this will be overwritten at =<700px screen width
 .unshoved{
   min-height: calc(100vh - 51px - 66px - 2.45rem);
 }

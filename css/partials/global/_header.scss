@@ -48,6 +48,11 @@ header[data-gallery-header] {
     display: none;
     font-family: $secondary-font;
     margin: auto;
+
+    @include mq(1077px) {
+      display:inline; 
+    }
+    
   }
 
   .search-bar {
@@ -122,6 +127,11 @@ nav{
   }
 }
 
+@include mq(700px){
+  .burger-nav{
+    display: none;
+  }
+}
 
 //overighters
 .gallery-nav {
@@ -133,6 +143,15 @@ nav{
   ul{
     width: fit-content;
     margin: 0 auto;
+  }
+
+  @include mq(700px){
+    display: block;
+    height: auto;
+    width: auto;
+    ul{
+        width: 100%;
+    }
   }
 }
 

@@ -1,5 +1,13 @@
 // Global
 
+@mixin mq($size){
+  // small to big screen
+  // take effect only if screen-size > $size
+  @media only screen and (min-width: $size){
+    @content
+  }
+};
+
 
 @import "./partials/global/variables";
 @import "./partials/global/add-on-classes";
@@ -52,7 +60,6 @@ h2 {
 
 
 
-
 .btn {
   border: 0;
   background-color:$clr-secondary-bg;
@@ -99,6 +106,10 @@ footer {
   display: grid;
   place-items: center;
 
+  @include mq(510px) {
+    min-height: calc(100vh - 62px - 36px);
+  }
+
   h2{
     text-align: center;
     padding:10px;
@@ -121,6 +132,10 @@ footer {
   width: 95%;
   background-color: $clr-primary-bg;
   padding: 10px;
+
+  @include mq(510px){
+    width: 60%;
+  }
 
 
   form{
