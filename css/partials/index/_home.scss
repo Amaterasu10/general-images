@@ -11,15 +11,16 @@
   background-size: cover;
   min-height: calc(100vh - 45px);
   width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.centerer {
   display: flex;
-  .centerer {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
+  flex-direction: column;
+  width: 95%;
+  h2 {
     margin: auto;
-    h2 {
-      margin: auto;
-    }
   }
 }
 

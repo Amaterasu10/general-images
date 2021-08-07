@@ -130,24 +130,24 @@ footer {
     flex-direction: column;
   }
 
-  .flex-column{
-    display: flex;
-    flex-direction: row;
-
-    justify-content: space-around;
-  }
-  .form-control{
-    width: 100%;
-    padding: 5px;
-    resize:vertical;
-  }
-
-  .form-btn{
-    background-color: $clr-primary-bg-lighter;
-
-  }
 }
 
+
+.flex-column{
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+}
+.form-control{
+  width: 100%;
+  padding: 5px;
+  resize:vertical;
+}
+
+.form-btn{
+  background-color: $clr-primary-bg-lighter;
+}
 
 //index styles
 @import "./partials/global/header";

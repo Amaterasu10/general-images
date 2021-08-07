@@ -1,4 +1,4 @@
-# general-images [![Netlify Status](https://api.netlify.com/api/v1/badges/50c799b5-560b-486c-9285-04f530d13b8f/deploy-status)](https://app.netlify.com/sites/frosty-bartik-df2068/deploys)
+# general-images [![Netlify Status](https://api.netlify.com/api/v1/badges/50c799b5-560b-486c-9285-04f530d13b8f/deploy-status)](https://app.netlify.com/sites/general-images/deploys)
 
 #This website is a gallery of pictures for drawing reference.
 
@@ -8,7 +8,7 @@ Drawing was my hubby at that time, so I thought about making a website that I ca
 
 
 
-https://frosty-bartik-df2068.netlify.app/   
+https://general-images.netlify.app/
 
 
 

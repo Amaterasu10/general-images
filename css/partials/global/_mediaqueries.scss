@@ -55,7 +55,11 @@
     .image-container {
         position: relative;
         min-height: 25vh;
-      }
+    }
+
+    #grid-container {
+        min-height: calc(100vh - 50px - 66px - 2.45rem);
+    }
 }
 
 @media (min-width: 1077px) {
@@ -64,6 +68,9 @@
     }
     .open-grid {
      grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    }
+    #grid-container {
+        min-height: calc(100vh - 61px - 66px - 2.45rem);
     }
 }
 

@@ -1,14 +1,14 @@
 import updateValue from "./updateValue.js";
-import { initialSearch } from "./ConstantData.js";
+import { initialSearch, totalImages } from "./globalVars.js";
 import renderUpdate from "./renderUpdate.js";
-export let lastCalled = 0;
-export let delay = 500;
-export let totalImages = 32;
-export let requestedPage = 2;
 
-const getData = async () =>{
+
+let lastCalled = 0;
+let delay = 500;
+let requestedPage = 2;
+
+const getData = () =>{
       
-
     if (lastCalled >= (Date.now() - delay)) return;
 
     //const nextData = await fetchNextPage(data,requestedPage)
