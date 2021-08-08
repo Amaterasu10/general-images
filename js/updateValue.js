@@ -1,5 +1,4 @@
-import { banner, category } from "./Elements.js" 
-import { initialSearch } from "./globalVars.js"
+import { banner, category, initialSearch } from "./globalVars.js" 
 let totalRendered = 0;
 
 async function updateValue(url) {

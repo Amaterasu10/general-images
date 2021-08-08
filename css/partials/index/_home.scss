@@ -5,7 +5,7 @@
 }
 
 .hero {
-  background: url(../pexels-cottonbro-3826431.webp);
+  background-image: url(../hero-small.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,6 +13,14 @@
   width: 100%;
   display: grid;
   place-items: center;
+
+  @include mq(768px){
+    background-image: url(../hero-big.webp);
+  }
+
+  @include mq(2000px) {
+    background-image: url(../hero-large.webp);
+  }
 }
 
 .centerer {

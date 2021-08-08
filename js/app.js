@@ -1,8 +1,10 @@
 "use strict";
+import { 
+  modalBox, body, gridContainer, 
+  modalCloseButton, burgerNav, galleryNav, 
+  modalImage, photographer, photoLink, initialSearch, totalImages
+} from "./globalVars.js";
 
-import { modalBox, body, gridContainer, modalLeftButton, modalRightButton, modalCloseButton, burgerNav, galleryNav } from "./Elements.js"
-import { initialSearch, totalImages } from "./globalVars.js";
-import navigateToModalImage from "./modalNavigation.js";
 import updateValue from "./updateValue.js";
 import renderUpdate from "./renderUpdate.js";
 
@@ -10,18 +12,13 @@ const App = {
   
   init(){
 
-    //modal controls
-    modalLeftButton.addEventListener("click", function() {
-      navigateToModalImage("left");
-    });
-
-    modalRightButton.addEventListener("click",function() {
-      navigateToModalImage("right");
-    });
-
     modalCloseButton.addEventListener("click", function () {
       modalBox.classList.replace("open", "close");
-      body.classList.remove("no-scroll"); 
+      body.classList.remove("no-scroll");
+      modalImage.removeAttribute("src");
+      photoLink.removeAttribute("href");
+      photographer.removeAttribute("href");
+      photographer.innerHTML = "";
     });
 
     //initial render of images, comes with functionalities for each images
@@ -39,6 +36,11 @@ const App = {
   }
   
 }// Website object
+
+
+// categoryArray.forEach(image => {
+//   console.log(`W: ${image.width}, H: ${image.height}`)
+// });
 
 //invocation
 window.addEventListener("DOMContentLoaded", () => App.init());

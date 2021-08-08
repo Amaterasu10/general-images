@@ -19,16 +19,18 @@
 
 }
 
-#modal-box::-webkit-scrollbar {
-    width: 10px;
-}
-   
-#modal-box::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-#modal-box::-webkit-scrollbar-thumb {
-    background-color: $clr-primary-bg-lighter;
+@include mq(675px){
+    #modal-box::-webkit-scrollbar {
+        width: 10px;
+    }
+       
+    #modal-box::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #modal-box::-webkit-scrollbar-thumb {
+        background-color: $clr-primary-bg-lighter;
+    }
 }
 
 
@@ -97,9 +99,7 @@ min-height: 100vh;
 display: flex;
 padding:50px 0;
 width: 90%;
-margin: 0 auto;
-
-    
+margin: 0 auto;    
 }
 
 #modal-image-wrapper {

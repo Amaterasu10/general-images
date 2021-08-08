@@ -1,5 +1,4 @@
-import { categoryArray } from "./globalVars.js"; 
-import { ModalImage, photoLink, photographer } from "./Elements.js";
+import { modalImage, photoLink, photographer, categoryArray } from "./globalVars.js";
 import ImageData from "./ImageData.js";
 
 export let modalCurrentIndex = 0;
@@ -13,14 +12,14 @@ const navigateToModalImage = function(direction) {
     modalCurrentIndex < categoryArray.length - 1 ? modalCurrentIndex += 1 : modalCurrentIndex = 0;
   }
   if(window.innerWidth > 1900){
-    ModalImage.src = ImageData.src[modalCurrentIndex].original;
+    modalImage.src = ImageData.src[modalCurrentIndex].original;
   }
   else if(window.innerWidth > 1400){
-    ModalImage.src = ImageData.src[modalCurrentIndex].large2x;
+    modalImage.src = ImageData.src[modalCurrentIndex].large2x;
   }else if(window.innerWidth > 700){
-    ModalImage.src = ImageData.src[modalCurrentIndex].large;
+    modalImage.src = ImageData.src[modalCurrentIndex].large;
   }else if(window.innerWidth < 700){
-    ModalImage.src = ImageData.src[modalCurrentIndex].medium;
+    modalImage.src = ImageData.src[modalCurrentIndex].medium;
   }
 
   photoLink.href = ImageData.url[modalCurrentIndex];
