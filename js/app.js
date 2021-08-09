@@ -2,7 +2,7 @@
 import { 
   modalBox, body, gridContainer, 
   modalCloseButton, burgerNav, galleryNav, 
-  modalImage, photographer, photoLink, initialSearch, totalImages
+  modalImage, photographer, photoLink, initialSearch, totalImages, categoryArray
 } from "./globalVars.js";
 
 import updateValue from "./updateValue.js";
@@ -21,9 +21,10 @@ const App = {
       photographer.innerHTML = "";
     });
 
+
     //initial render of images, comes with functionalities for each images
     renderUpdate(updateValue(`https://api.pexels.com/v1/search?per_page=${totalImages}&page&query=${initialSearch}`))
-    
+
     burgerNav.addEventListener("click", ()=>{
       galleryNav.classList.toggle("autoHeight")
       
@@ -36,11 +37,6 @@ const App = {
   }
   
 }// Website object
-
-
-// categoryArray.forEach(image => {
-//   console.log(`W: ${image.width}, H: ${image.height}`)
-// });
 
 //invocation
 window.addEventListener("DOMContentLoaded", () => App.init());

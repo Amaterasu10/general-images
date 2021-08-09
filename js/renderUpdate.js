@@ -3,17 +3,15 @@ import getData from "./getData.js";
 import imageOnClick from "./imageOnClick.js"
 import { categoryArray, setCategoryArray, initialSearch, category, banner } from "./globalVars.js";
 
-const head =  document.getElementsByTagName('head')[0]
-
 const renderUpdate = async data =>{
+  const head =  document.getElementsByTagName('head')[0]
   let res = await data
   if(res == undefined || null) return;
-
+  
   let images = res.photos
   if(images.length <= 0) return;
   
   document.getElementsByTagName('title')[0].innerHTML = ` ${res.total_results} results for ${initialSearch}`
-    let i = 1;
   images.forEach(image => {
     
     const newImage = new Image();
@@ -45,7 +43,6 @@ const renderUpdate = async data =>{
     
     const aspectRatio = image.width / image.height;
     
-    
     newDiv.style.backgroundColor = image.avg_color;
     
     const newOverlayContainer = document.createElement('Div')
@@ -58,7 +55,6 @@ const renderUpdate = async data =>{
     newDiv.append(newOverlayContainer)
     category.append(newDiv)
     
-    
     ImageData.photographer.push(image.photographer)
     ImageData.url.push(image.url)
     ImageData.photographer_url.push(image.photographer_url)
@@ -66,18 +62,7 @@ const renderUpdate = async data =>{
     ImageData.src.push(image.src)
     ImageData.height.push(image.height)
     ImageData.width.push(image.width)
-    
-    // const logthis =  {index:i, naturalWidth: newImage.naturalWidth, cliendWidth: newImage.clientWidth, offset: newImage.offsetWidth, width: newImage.width, naturalHeight: newImage.naturalHeight, clientH: newImage.clientHeight, offsetH: newImage.offsetHeight, height: newImage.height, aspect: aspectRatio, innerW: newImage.innerWidth, offsetW: newImage.offsetWidth, innerH: newImage.innerHeight}
-    
-    // console.table([logthis])
-    const linkImagePreloader = document.createElement('link')
-    linkImagePreloader.rel = 'preload'
-    
-    linkImagePreloader.href = image.src.medium
-    linkImagePreloader.as = "image"         
-    head.append(linkImagePreloader) 
-
-    i++;
+  
   });
   
   
@@ -86,18 +71,20 @@ const renderUpdate = async data =>{
   
   const imgOptions = {};
   
+  // const head =  document.getElementsByTagName('head')[0]
   const imgObserver = new IntersectionObserver((entries, imgObserver) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       const img = entry.target;  
+
+      const linkImagePreloader = document.createElement('link')
+      linkImagePreloader.rel = 'preload'
+      
+      linkImagePreloader.href = ImageData.src[categoryArray.indexOf(img)].medium
+      linkImagePreloader.as = "image"      
+      head.append(linkImagePreloader) 
+      
       img.src = ImageData.src[categoryArray.indexOf(img)].medium
-      
-      // const logthis = [ img.naturalWidth, img.clientWidth, img.offsetWidth, img.width]
-      // console.table([logthis])
-      // console.log(i, img.naturalHeight, img.clientHeight, img.offsetHeight, img.height)
-      // console.log( img.innerWidth, img.offsetWidth, img.innerHeight)
-      
-      
       
       img.style.width = '100%';
       
@@ -122,12 +109,8 @@ const renderUpdate = async data =>{
   },bannerOptions)
   
   bannerObserver.observe(banner)
-  if('all images are loaded and banner is visible'){
-    'getdata'
-  } 
-
-  imageOnClick();
   
+  imageOnClick();
 }
 
 

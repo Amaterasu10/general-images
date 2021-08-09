@@ -3,6 +3,7 @@ import {modalBox, body, modalImage, photographer, photoLink, categoryArray} from
 import ImageData from "./ImageData.js";
 
 const imageOnClick = function() {
+
   categoryArray.forEach(image =>{ 
 
     image.addEventListener("click", function () {
