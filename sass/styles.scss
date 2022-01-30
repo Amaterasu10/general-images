@@ -78,28 +78,6 @@ h2 {
   right: 0;
 }
 
-footer {
-  display: flex;
-  background-color: $clr-primary-bg;
-  width: 100%;
-  flex-direction: column;
-  color: $clr-primary-txt;
-}
-
-.contacts {
-  margin: 0 auto;
-}
-
-.contacts li {
-  display: inline-block;
-  
-  padding: 0.5rem;
-  *{
-    color: inherit;
-  }
-}
-
-
 .out-mains {
   background-color: $clr-primary-bg-lighter;
   min-height: calc(100vh - 95px - 36px );
