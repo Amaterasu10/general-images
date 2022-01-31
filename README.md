@@ -1,4 +1,4 @@
-# general-images [![Netlify Status](https://api.netlify.com/api/v1/badges/50c799b5-560b-486c-9285-04f530d13b8f/deploy-status)](https://app.netlify.com/sites/general-images/deploys)
+# general-images [![Netlify Status](https://api.netlify.com/api/v1/badges/7d111954-956f-4b89-bb0b-747f2e129b66/deploy-status)](https://app.netlify.com/sites/general-images/deploys)
 
 #This website is a gallery of pictures for drawing reference.
 
