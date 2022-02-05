@@ -9,7 +9,7 @@
 };
 
 
-@import "./partials/global/variables";
+@import "./abstracts/variables";
 @import "./partials/global/add-on-classes";
 
 
@@ -77,28 +77,6 @@ h2 {
 .right-btn {
   right: 0;
 }
-
-footer {
-  display: flex;
-  background-color: $clr-primary-bg;
-  width: 100%;
-  flex-direction: column;
-  color: $clr-primary-txt;
-}
-
-.contacts {
-  margin: 0 auto;
-}
-
-.contacts li {
-  display: inline-block;
-  
-  padding: 0.5rem;
-  *{
-    color: inherit;
-  }
-}
-
 
 .out-mains {
   background-color: $clr-primary-bg-lighter;
@@ -170,8 +148,8 @@ footer {
 
 
 // gallery styles
-@import "./partials/gallery/main";
-@import "./partials/gallery/modal";
+@import "./layouts/main";
+@import "./components/modal";
 
 
 
@@ -180,6 +158,4 @@ footer {
 
 @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Cormorant:ital,wght@1,700&family=Lemonada:wght@600&family=Sniglet&display=swap");
 
-@import "scss/fontawesome.scss";
-@import "scss/solid.scss";
-@import "scss/brands.scss";
+@import "vendor/_vendor-dir";
