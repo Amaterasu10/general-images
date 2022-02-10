@@ -1,6 +1,5 @@
 import ImageData from "./ImageData.js";
 import getData from "./getData.js";
-import imageOnClick from "./imageOnClick.js"
 import { categoryArray, setCategoryArray, initialSearch, category, banner } from "./globalVars.js";
 
 const renderUpdate = async data =>{
@@ -110,7 +109,6 @@ const renderUpdate = async data =>{
   
   bannerObserver.observe(banner)
   
-  imageOnClick();
 }
 
 
