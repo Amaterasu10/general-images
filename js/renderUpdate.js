@@ -18,9 +18,10 @@ const renderUpdate = async data =>{
     let imageTitle = image.url.substr(29)
     
     while(imageTitle.includes('-') || imageTitle.includes('/')){
-      imageTitle= imageTitle.replace('-',' ')
-      imageTitle= imageTitle.replace(/[0-9]/g, '')
-      imageTitle= imageTitle.replace('/', '')
+      imageTitle = imageTitle
+      .replace('-',' ')
+        .replace(/[0-9]/g, '')
+          .replace('/', '');
     }
     
     newImage.alt = imageTitle
