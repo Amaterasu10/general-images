@@ -17,14 +17,6 @@
 
 // Global
 
-@mixin mq($size){
-  // small to big screen
-  // take effect only if screen-size > $size
-  @media only screen and (min-width: $size){
-    @content
-  }
-};
-
 @import "./partials/global/add-on-classes";
 
 .btn {
