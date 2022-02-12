@@ -1,6 +1,5 @@
 import ImageData from "./ImageData.js";
 import getData from "./getData.js";
-import imageOnClick from "./imageOnClick.js"
 import { categoryArray, setCategoryArray, initialSearch, category, banner } from "./globalVars.js";
 
 const renderUpdate = async data =>{
@@ -19,9 +18,10 @@ const renderUpdate = async data =>{
     let imageTitle = image.url.substr(29)
     
     while(imageTitle.includes('-') || imageTitle.includes('/')){
-      imageTitle= imageTitle.replace('-',' ')
-      imageTitle= imageTitle.replace(/[0-9]/g, '')
-      imageTitle= imageTitle.replace('/', '')
+      imageTitle = imageTitle
+      .replace('-',' ')
+        .replace(/[0-9]/g, '')
+          .replace('/', '');
     }
     
     newImage.alt = imageTitle
@@ -110,7 +110,6 @@ const renderUpdate = async data =>{
   
   bannerObserver.observe(banner)
   
-  imageOnClick();
 }
 
 
