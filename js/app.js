@@ -7,11 +7,11 @@ import {
 
 import updateValue from "./updateValue.js";
 import renderUpdate from "./renderUpdate.js";
-
+import imageOnClick from "./imageOnClick.js"
 const App = {
   
   init(){
-
+    imageOnClick();
     modalCloseButton.addEventListener("click", function () {
       modalBox.classList.replace("open", "close");
       body.classList.remove("no-scroll");

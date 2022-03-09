@@ -1,6 +1,5 @@
 import ImageData from "./ImageData.js";
 import getData from "./getData.js";
-import imageOnClick from "./imageOnClick.js"
 import { categoryArray, setCategoryArray, initialSearch, category, banner } from "./globalVars.js";
 
 const renderUpdate = async data =>{
@@ -19,9 +18,10 @@ const renderUpdate = async data =>{
     let imageTitle = image.url.substr(29)
     
     while(imageTitle.includes('-') || imageTitle.includes('/')){
-      imageTitle= imageTitle.replace('-',' ')
-      imageTitle= imageTitle.replace(/[0-9]/g, '')
-      imageTitle= imageTitle.replace('/', '')
+      imageTitle = imageTitle
+      .replace('-',' ')
+        .replace(/[0-9]/g, '')
+          .replace('/', '');
     }
     
     newImage.alt = imageTitle
@@ -55,14 +55,13 @@ const renderUpdate = async data =>{
     newDiv.append(newOverlayContainer)
     category.append(newDiv)
     
-    ImageData.photographer.push(image.photographer)
-    ImageData.url.push(image.url)
-    ImageData.photographer_url.push(image.photographer_url)
-    
-    ImageData.src.push(image.src)
-    ImageData.height.push(image.height)
-    ImageData.width.push(image.width)
-  
+    const { photographer, photographer_url, url, src, height, width } = ImageData;
+    photographer.push(image.photographer)
+    url.push(image.url)
+    photographer_url.push(image.photographer_url)
+    src.push(image.src)
+    height.push(image.height)
+    width.push(image.width)
   });
   
   
@@ -110,7 +109,6 @@ const renderUpdate = async data =>{
   
   bannerObserver.observe(banner)
   
-  imageOnClick();
 }
 
 

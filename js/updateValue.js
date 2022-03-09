@@ -39,8 +39,7 @@ async function updateValue(url) {
   }
 
   else if(data.photos.length == 0){
-    banner.innerHTML = `zero search result for : "${initialSearch}"`
-    category.innerHTML = `<p> zero search result for : "${initialSearch}"</p>`
+    banner.textContent = `zero search result for : "${initialSearch}"`
   }
 
   searchInput.value = "";

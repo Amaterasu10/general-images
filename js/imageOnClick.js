@@ -4,31 +4,31 @@ import ImageData from "./ImageData.js";
 
 const imageOnClick = function() {
 
-  categoryArray.forEach(image =>{ 
+  document.getElementById("Images-container").addEventListener("click", function(e) {
 
-    image.addEventListener("click", function () {
+    if(e.target && e.target.nodeName !== "IMG") return;
 
-      if (modalBox.classList == "close") {
-        modalBox.classList.replace("close", "open");
-        body.classList.add("no-scroll");
+    console.log(e.target.alt);
+    const image = e.target;
 
-        if(window.innerWidth > 1900){
-          modalImage.src = ImageData.src[categoryArray.indexOf(this)].original;
-        }else if(window.innerWidth > 1400){
-          modalImage.src = ImageData.src[categoryArray.indexOf(this)].large2x;
-        }else{
-          modalImage.src = ImageData.src[categoryArray.indexOf(this)].large;
-        }
-        
-        setModalCurrentIndex(categoryArray.indexOf(this));
-        photoLink.href = ImageData.url[categoryArray.indexOf(this)];
-        photographer.href = ImageData.photographer_url[categoryArray.indexOf(this)];
-        photographer.innerHTML = ImageData.photographer[categoryArray.indexOf(this)];
+    if (modalBox.classList == "close") {
+      modalBox.classList.replace("close", "open");
+      body.classList.add("no-scroll");
+      
+      if(window.innerWidth > 1900) modalImage.src = ImageData.src[categoryArray.indexOf(image)].original;
 
-      }
+      else if(window.innerWidth > 1400) modalImage.src = ImageData.src[categoryArray.indexOf(image)].large2x;
+
+      else modalImage.src = ImageData.src[categoryArray.indexOf(image)].large;
+      
+      setModalCurrentIndex(categoryArray.indexOf(image));
+      photoLink.href = ImageData.url[categoryArray.indexOf(image)];
+      photographer.href = ImageData.photographer_url[categoryArray.indexOf(image)];
+      photographer.innerHTML = ImageData.photographer[categoryArray.indexOf(image)];
+
     }
-    )
-  }
-  )
+      
+  });
+
 }
 export default imageOnClick;
