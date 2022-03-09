@@ -55,14 +55,13 @@ const renderUpdate = async data =>{
     newDiv.append(newOverlayContainer)
     category.append(newDiv)
     
-    ImageData.photographer.push(image.photographer)
-    ImageData.url.push(image.url)
-    ImageData.photographer_url.push(image.photographer_url)
-    
-    ImageData.src.push(image.src)
-    ImageData.height.push(image.height)
-    ImageData.width.push(image.width)
-  
+    const { photographer, photographer_url, url, src, height, width } = ImageData;
+    photographer.push(image.photographer)
+    url.push(image.url)
+    photographer_url.push(image.photographer_url)
+    src.push(image.src)
+    height.push(image.height)
+    width.push(image.width)
   });
   
   
