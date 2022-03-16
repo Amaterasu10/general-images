@@ -14,7 +14,7 @@ async function updateValue(url) {
   }
   const res = await fetch(url,{
     headers: {
-      Authorization: "563492ad6f9170000100000123ebb2ef16c445f496c949542eaf75aa"
+      Authorization: process.env.API_KEY
     }
   });
   
